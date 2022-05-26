@@ -2,24 +2,15 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AboutController extends AbstractController
 {
-    /**
-     * @Route (path="about")
-     * @return Response
-     * @throws \Exception
-     */
-
-    public function about(): Response
+    #[Route('/about', name: 'app_about')]
+    public function index(): Response
     {
-        $about = random_int(0, 100);
-
-        return $this->render('about/about.html.twig', [
-            'about' => $about,
-        ]);
+        return $this->render('about/index.html.twig');
     }
 }

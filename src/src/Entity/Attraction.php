@@ -13,23 +13,23 @@ class Attraction
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'string', length: 512, nullable: true)]
     private $shortDescription;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $fullDescription;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $score;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private $updateAt;
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -41,7 +41,7 @@ class Attraction
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -89,21 +89,21 @@ class Attraction
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
-    public function setUpdateAt(?\DateTimeImmutable $updateAt): self
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
